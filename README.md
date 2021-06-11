@@ -212,3 +212,6 @@ CreateTimeInput | https://adaptivecards.io/explorer/Input.Time.html
 CreateToggleInput | https://adaptivecards.io/explorer/Input.Toggle.html
 CreateChoice | https://adaptivecards.io/explorer/Input.Choice.html
 CreateChoiceSet | https://adaptivecards.io/explorer/Input.ChoiceSet.html
+
+# Links
+[Microsoft Adaptive Cards documentation](https://adaptivecards.io/explorer/)

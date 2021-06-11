@@ -4,22 +4,6 @@ exports('DeferralCards', function()
     return DeferralCards
 end)
 
---[[
-    TODO:
-    [] Remove all optional parameters in each function
-    [] Create sub-tables for each category (Cards, Card Elements, Containers, Actions, Inputs)
-        - DeferralCards.Cards = {}
-        - DeferralCards.CardElements = {}
-        - DeferralCards.Containers = {}
-        - DeferralCards.Actions = {}
-        - DeferralCards.Inputs = {}
-]]
-
---[[
-    Link to Microsoft Adaptive Cards documentation
-    https://adaptivecards.io/explorer/
-]]
-
 --------------------------------------------------[[ Cards ]]--------------------------------------------------
 
 function DeferralCards:CreateAdaptiveCard(pOptions)
@@ -241,8 +225,8 @@ end
 
 function DeferralCards:CreateFact(pOptions)
     if not pOptions then return end
-    pOptions.title = pOptions.title or 'Fact Title'
-    pOptions.value = pOptions.value or 'Fact Value'
+    pOptions.title = pOptions.title or 'Title'
+    pOptions.value = pOptions.value or 'Value'
     return pOptions
 end
 --[[
@@ -519,7 +503,7 @@ function DeferralCards:CreateChoiceSet(pOptions)
     if not pOptions then return end
     pOptions.type = 'Input.ChoiceSet'
     pOptions.choices = pOptions.choices or {}
-    pOptions.placeholder = pOptions.placeholder or 'Placeholder Text'
+    pOptions.placeholder = pOptions.placeholder or 'Placeholder'
     return pOptions
 end
 --[[

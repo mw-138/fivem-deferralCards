@@ -2,7 +2,7 @@
  
 This is a FiveM resources that allows developers to easily create server-side adaptive cards within deferrals using Microsoft Adaptive Cards.
 
-Within one of the FiveM Cookbook topics about the use of [Adaptive Cards in deferrals](https://cookbook.fivem.net/2019/06/29/adaptive-cards-in-deferrals/), it shows a code example of how an adaptive card would work when a player connects like this:
+Within one of the FiveM Cookbook topics about the use of [Adaptive Cards in deferrals](https://cookbook.fivem.net/2019/06/29/adaptive-cards-in-deferrals/), it shows a code example of how an adaptive card would work when a player connects to a server:
 ```lua
 AddEventHandler('playerConnecting', function(name, skr, d)
     d.defer()

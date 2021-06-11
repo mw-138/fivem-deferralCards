@@ -1,4 +1,10 @@
-local DeferralCards = {}
+local DeferralCards = {
+    Card = {},
+    CardElement = {},
+    Container = {},
+    Action = {},
+    Input = {}
+}
 
 exports('DeferralCards', function()
     return DeferralCards
@@ -6,36 +12,41 @@ end)
 
 --------------------------------------------------[[ Cards ]]--------------------------------------------------
 
-function DeferralCards:CreateAdaptiveCard(pOptions)
+function DeferralCards.Card.Create(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'AdaptiveCard'
     pOptions.version = pOptions.version or '1.4'
     pOptions.body = pOptions.body or {}
-    pOptions.backgroundImage = pOptions.backgroundImage or {}
     pOptions['$schema'] = 'http://adaptivecards.io/schemas/adaptive-card.json'
     return json.encode(pOptions)
 end
 --[[
-    DeferralCards:CreateAdaptiveCard({
-        body = {},
-        backgroundImage = '',
-        version = '1.4'
+    DeferralCards.Card:Create({
+        body = {
+            DeferralCards.CardElement:Image({
+                url = '',
+                size = 'small',
+                horizontalAlignment = 'center'
+            }),
+            DeferralCards.CardElement:TextBlock({
+                text = 'Text',
+                weight = 'Light',
+                horizontalAlignment = 'center'
+            }),
+        }
     })
 ]]
 
 --------------------------------------------------[[ Card Elements ]]--------------------------------------------------
 
-function DeferralCards:CreateTextBlock(pOptions)
+function DeferralCards.CardElement.TextBlock(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'TextBlock'
-    pOptions.size = pOptions.size or 'ExtraLarge'
-    pOptions.weight = pOptions.weight or 'Bolder'
     pOptions.text = pOptions.text or 'Text'
-    pOptions.wrap = pOptions.wrap or true
     return pOptions
 end
 --[[
-    DeferralCards:CreateTextBlock({
+    DeferralCards.CardElement:TextBlock({
         size = 'small',
         weight = 'Light',
         text = 'Some text',
@@ -43,61 +54,52 @@ end
     })
 ]]
 
-function DeferralCards:CreateImage(pOptions)
+function DeferralCards.CardElement.Image(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Image'
     pOptions.url = pOptions.url or 'https://via.placeholder.com/100x100?text=Temp+Image'
     return pOptions
 end
 --[[
-    DeferralCards:CreateImage({
+    DeferralCards.CardElement:Image({
         url = 'https://via.placeholder.com/100x100?text=Temp+Image'
     })
 ]]
 
-function DeferralCards:CreateMedia(pOptions)
+function DeferralCards.CardElement.Media(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Media'
-    pOptions.poster = pOptions.poster or 'https://adaptivecards.io/content/poster-video.png'
     pOptions.sources = pOptions.sources or {}
     return pOptions
 end
 --[[
-    DeferralCards:CreateMedia({
+    DeferralCards.CardElement:Media({
         poster = 'https://adaptivecards.io/content/poster-video.png',
         sources = {}
     })
 ]]
 
-function DeferralCards:CreateMediaSource(pOptions)
+function DeferralCards.CardElement.MediaSource(self, pOptions)
     if not pOptions then return end
     pOptions.mimeType = pOptions.mimeType or 'video/mp4'
     pOptions.url = pOptions.url or ''
     return pOptions
 end
 --[[
-    DeferralCards:CreateMediaSource({
+    DeferralCards.CardElement:MediaSource({
         mimeType = 'video/mp4',
         url = ''
     })
 ]]
 
-function DeferralCards:CreateRichTextBlockItem(pOptions)
+function DeferralCards.CardElement.RichTextBlockItem(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'TextRun'
     pOptions.text = pOptions.text or 'Text'
-    pOptions.size = pOptions.size or 'small'
-    pOptions.color = pOptions.color or 'good'
-    pOptions.isSubtle = pOptions.isSubtle or false
-    pOptions.weight = pOptions.weight or 'small'
-    pOptions.highlight = pOptions.highlight or false
-    pOptions.italic = pOptions.italic or false
-    pOptions.strikethrough = pOptions.strikethrough or false
-    pOptions.fontType = pOptions.fontType or 'monospace'
     return pOptions
 end
 --[[
-    DeferralCards:CreateRichTextBlockItem({
+    DeferralCards.CardElement:RichTextBlockItem({
         text = 'Item 1',
         size = 'small',
         color = 'good',
@@ -110,18 +112,17 @@ end
     })
 ]]
 
-function DeferralCards:CreateRichTextBlock(pOptions)
+function DeferralCards.CardElement.RichTextBlock(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'RichTextBlock'
-    pOptions.horizontalAlignment = pOptions.horizontalAlignment or 'center'
     pOptions.inline = pOptions.inline or {}
     return pOptions
 end
 --[[
-    DeferralCards:CreateRichTextBlock({
+    DeferralCards.CardElement:RichTextBlock({
         horizontalAlignment = 'center',
         inline = {
-            DeferralCards:CreateRichTextBlockItem({
+            DeferralCards.CardElement:RichTextBlockItem({
                 text = 'Item 1',
                 size = 'small',
                 color = 'good',
@@ -129,7 +130,7 @@ end
                 weight = 'small',
                 highlight = true
             }),
-            DeferralCards:CreateRichTextBlockItem({
+            DeferralCards.CardElement:RichTextBlockItem({
                 text = 'Item 2',
                 size = 'medium',
                 color = 'good',
@@ -141,23 +142,14 @@ end
     })
 ]]
 
-function DeferralCards:CreateTextRun(pOptions)
+function DeferralCards.CardElement.TextRun(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'TextRun'
     pOptions.text = pOptions.text or 'Text'
-    pOptions.color = pOptions.color or 'good'
-    pOptions.fontType = pOptions.fontType or 'monospace'
-    pOptions.highlight = pOptions.highlight or false
-    pOptions.isSubtle = pOptions.isSubtle = false
-    pOptions.italic = pOptions.italic = false
-    pOptions.size = pOptions.size or 'small'
-    pOptions.strikethrough = pOptions.strikethrough = false
-    pOptions.underline = pOptions.underline or false
-    pOptions.weight = pOptions.weight or 'medium'
     return pOptions
 end
 --[[
-    DeferralCards:CreateTextRun({
+    DeferralCards.CardElement:TextRun({
         text = 'Text',
         color = 'good',
         fontType = 'monospace',
@@ -173,83 +165,82 @@ end
 
 --------------------------------------------------[[ Containers ]]--------------------------------------------------
 
-function DeferralCards:CreateActionSet(pOptions)
-    if not pOptions then return end
-    pOptions.type = 'ActionSet'
-    pOptions.actions = pOptions.actions or {}
-    return pOptions
-end
---[[
-    DeferralCards:CreateActionSet({
-        actions = {},
-    })
-]]
-
-function DeferralCards:CreateContainer(pOptions)
+function DeferralCards.Container.Create(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Container'
     pOptions.items = pOptions.items or {}
     return pOptions
 end
 --[[
-    DeferralCards:CreateContainer({
+    DeferralCards.Container:Create({
         items = {}
     })
 ]]
 
-function DeferralCards:CreateColumnSet(pOptions)
+function DeferralCards.Container.ActionSet(self, pOptions)
+    if not pOptions then return end
+    pOptions.type = 'ActionSet'
+    pOptions.actions = pOptions.actions or {}
+    return pOptions
+end
+--[[
+    DeferralCards.Container:ActionSet({
+        actions = {},
+    })
+]]
+
+function DeferralCards.Container.ColumnSet(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'ColumnSet'
     pOptions.columns = pOptions.columns or {}
     return pOptions
 end
 --[[
-    DeferralCards:CreateColumnSet({
+    DeferralCards.Container:ColumnSet({
         columns = {}
     })
 ]]
 
-function DeferralCards:CreateColumn(pOptions)
+function DeferralCards.Container.Column(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Column'
     pOptions.items = pOptions.items or {}
-    pOptions.width = pOptions.width or 'auto'
     return pOptions
 end
 --[[
-    DeferralCards:CreateColumn({
+    DeferralCards.Container:Column({
         items = {},
         width = 'auto'
     })
 ]]
 
-function DeferralCards:CreateFact(pOptions)
+function DeferralCards.Container.Fact(self, pOptions)
     if not pOptions then return end
     pOptions.title = pOptions.title or 'Title'
     pOptions.value = pOptions.value or 'Value'
     return pOptions
 end
 --[[
-    DeferralCards:CreateFact({
+    DeferralCards.Container:Fact({
         title = 'Title',
         value = 'Value'
     })
 ]]
 
-function DeferralCards:CreateFactSet(pOptions)
+function DeferralCards.Container.FactSet(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'FactSet'
     pOptions.facts = pOptions.facts or {}
     return pOptions
 end
 --[[
-    DeferralCards:CreateFactSet({
+    DeferralCards.Container:FactSet({
         facts = {
-            DeferralCards:CreateFact({
+            DeferralCards.Container:Fact({
                 title = 'Title 1',
                 value = 'Value 1'
             }),
-            DeferralCards:CreateFact({
+            DeferralCards.Container:Fact({
                 title = 'Title 2',
                 value = 'Value 2'
             })
@@ -257,33 +248,33 @@ end
     })
 ]]
 
-function DeferralCards:CreateImageSetItem(pOptions)
+function DeferralCards.Container.ImageSetItem(self, pOptions)
     if not pOptions then return end
     pOptions.type = pOptions.type or 'Image'
     pOptions.url = pOptions.url or 'https://adaptivecards.io/content/cats/1.png'
     return pOptions
 end
 --[[
-    DeferralCards:CreateImageSetItem({
+    DeferralCards.Container:ImageSetItem({
         type = 'Image',
         url = 'https://adaptivecards.io/content/cats/1.png'
     })
 ]]
 
-function DeferralCards:CreateImageSet(pOptions)
+function DeferralCards.Container.ImageSet(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'ImageSet'
     pOptions.images = pOptions.images or {}
     return pOptions
 end
 --[[
-    DeferralCards:CreateImageSet({
+    DeferralCards.Container:ImageSet({
         images = {
-            DeferralCards:CreateImageSetItem({
+            DeferralCards.Container:ImageSetItem({
                 type = 'Image',
                 url = 'https://adaptivecards.io/content/cats/1.png'
             }),
-            DeferralCards:CreateImageSetItem({
+            DeferralCards.Container:ImageSetItem({
                 type = 'Image',
                 url = 'https://adaptivecards.io/content/cats/2.png'
             })
@@ -293,29 +284,26 @@ end
 
 --------------------------------------------------[[ Actions ]]--------------------------------------------------
 
-function DeferralCards:CreateOpenUrlAction(pOptions)
+function DeferralCards.Action.OpenUrl(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Action.OpenUrl'
-    pOptions.title = pOptions.title or 'Title'
     pOptions.url = pOptions.url or 'https://www.google.co.uk/'
     return pOptions
 end
 --[[
-    DeferralCards:CreateOpenUrlAction({
+    DeferralCards.Action:OpenUrl({
         title = 'Title',
         url = 'https://www.google.co.uk/'
     })
 ]]
 
-function DeferralCards:CreateSubmitAction(pOptions)
+function DeferralCards.Action.Submit(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Action.Submit'
-    pOptions.title = pOptions.title or 'Title'
-    pOptions.data = pOptions.data or {}
     return pOptions
 end
 --[[
-    DeferralCards:CreateSubmitAction({
+    DeferralCards.Action:Submit({
         title = 'Title',
         data = {
             x = 10
@@ -323,49 +311,45 @@ end
     })
 ]]
 
-function DeferralCards:CreateShowCardAction(pOptions)
+function DeferralCards.Action.ShowCard(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Action.ShowCard'
-    pOptions.title = pOptions.title or 'Title'
-    pOptions.card = pOptions.card or {}
     return pOptions
 end
 --[[
-    DeferralCards:CreateShowCardAction({
+    DeferralCards.Action:ShowCard({
         title = 'Title',
         card = {}
     })
 ]]
 
-function DeferralCards:CreateTargetElement(pOptions)
+function DeferralCards.Action.TargetElement(self, pOptions)
     if not pOptions then return end
-    pOptions.elementId = pOptions.elementId or 'Id'
-    pOptions.isVisible = pOptions.isVisible or true
+    pOptions.elementId = pOptions.elementId or 'target_element'
     return pOptions
 end
 --[[
-    Deferralcards:CreateTargetElement({
+    DeferralCards.Action:TargetElement({
         elementId = 'element_1',
         isVisible = true
     })
 ]]
 
-function DeferralCards:CreateToggleVisibilityAction(pOptions)
+function DeferralCards.Action.ToggleVisibility(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Action.ToggleVisibility'
-    pOptions.title = pOptions.title or 'Title'
     pOptions.targetElements = pOptions.targetElements or {}
     return pOptions
 end
 --[[
-    DeferralCards:CreateToggleVisibilityAction({
+    DeferralCards.Action:ToggleVisibility({
         title = 'Title',
         targetElements = {
-            Deferralcards:CreateTargetElement({
+            Deferralcards.Action:TargetElement({
                 elementId = 'element_1',
                 isVisible = true
             }),
-            Deferralcards:CreateTargetElement({
+            Deferralcards.Action:TargetElement({
                 elementId = 'element_2',
                 isVisible = true
             })
@@ -373,16 +357,13 @@ end
     })
 ]]
 
-function DeferralCards:CreateExecuteAction(pOptions)
+function DeferralCards.Action.Execute(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Action.Execute'
-    pOptions.title = pOptions.title or 'Title'
-    pOptions.verb = pOptions.verb or 'Verb'
-    pOptions.data = pOptions.data or {}
     return pOptions
 end
 --[[
-    Deferralcards:CreateExecuteAction({
+    DeferralCards.Action:Execute({
         title = 'Title',
         verb = 'Verb',
         data = {
@@ -393,17 +374,14 @@ end
 
 --------------------------------------------------[[ Inputs ]]--------------------------------------------------
 
-function DeferralCards:CreateTextInput(pOptions)
+function DeferralCards.Input.Text(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Input.Text'
     pOptions.id = pOptions.id or 'input_text'
-    pOptions.text = pOptions.text or 'Text'
-    pOptions.title = pOptions.title or 'Title'
-    pOptions.placeholder = pOptions.placeholder or 'Placeholder'
     return pOptions
 end
 --[[
-    DeferralCards:CreateTextInput({
+    DeferralCards.Input:Text({
         id = 'input_text',
         text = 'Text',
         title = 'Title',
@@ -411,18 +389,14 @@ end
     })
 ]]
 
-function DeferralCards:CreateNumberInput(pOptions)
+function DeferralCards.Input.Number(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Input.Number'
     pOptions.id = pOptions.id or 'input_number'
-    pOptions.placeholder = pOptions.placeholder or 'Placeholder'
-    pOptions.min = pOptions.min or 1
-    pOptions.max = pOptions.max or 10
-    pOptions.value = pOptions.value or 5
     return pOptions
 end
 --[[
-    DeferralCards:CreateNumberInput({
+    DeferralCards.Input:Number({
         id = 'input_number',
         placeholder = 'Placeholder',
         min = 1,
@@ -431,33 +405,28 @@ end
     })
 ]]
 
-function DeferralCards:CreateDateInput(pOptions)
+function DeferralCards.Input.Date(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Input.Date'
     pOptions.id = pOptions.id or 'input_date'
-    pOptions.placeholder = pOptions.placeholder or 'Placeholder'
-    pOptions.value = pOptions.value or '2021-08-13'
     return pOptions
 end
 --[[
-    DeferralCards:CreateDateInput({
+    DeferralCards.Input:Date({
         id = 'input_date',
         placeholder = 'Placeholder',
         value = '2021-08-13'
     })
 ]]
 
-function DeferralCards:CreateTimeInput(pOptions)
+function DeferralCards.Input.Time(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Input.Time'
     pOptions.id = pOptions.id or 'input_time'
-    pOptions.min = pOptions.min or '00:00'
-    pOptions.max = pOptions.max or '23:59'
-    pOptions.value = pOptions.value or '19:00'
     return pOptions
 end
 --[[
-    DeferralCards:CreateTimeInput({
+    DeferralCards.Input:Time({
         id = 'input_time',
         placeholder = 'Placeholder',
         min = '00:00',
@@ -466,18 +435,15 @@ end
     })
 ]]
 
-function DeferralCards:CreateToggleInput(pOptions)
+function DeferralCards.Input.Toggle(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Input.Toggle'
+    pOptions.title = pOptions.title or 'Title'
     pOptions.id = pOptions.id or 'input_toggle'
-    pOptions.title = pOptions.title = 'Title'
-    pOptions.value = pOptions.value or 'true'
-    pOptions.valueOn = pOptions.valueOn or 'true'
-    pOptions.valueOff = pOptions.valueOff or 'false'
     return pOptions
 end
 --[[
-    DeferralCards:CreateToggleInput({
+    DeferralCards.Input:Toggle({
         id = 'input_toggle',
         title = 'Title',
         value = 'true',
@@ -486,35 +452,35 @@ end
     })
 ]]
 
-function DeferralCards:CreateChoice(pOptions)
+function DeferralCards.Input.Choice(self, pOptions)
     if not pOptions then return end
     pOptions.title = pOptions.title or 'Title'
     pOptions.value = pOptions.value or 'Value'
     return pOptions
 end
 --[[
-    DeferralCards:CreateChoice({
+    DeferralCards.Input:Choice({
         title = 'Title',
         value = 'Value'
     })
 ]]
 
-function DeferralCards:CreateChoiceSet(pOptions)
+function DeferralCards.Input.ChoiceSet(self, pOptions)
     if not pOptions then return end
     pOptions.type = 'Input.ChoiceSet'
     pOptions.choices = pOptions.choices or {}
-    pOptions.placeholder = pOptions.placeholder or 'Placeholder'
+    pOptions.id = pOptions.id or 'choice_set'
     return pOptions
 end
 --[[
-    DeferralCards:CreateChoiceSet({
+    DeferralCards.Input:ChoiceSet({
         placeholder = 'Text',
         choices = {
-            DeferralCards:CreateChoice({
+            DeferralCards.Input:Choice({
                 title = 'Title 1',
                 value = 'Value 1'
             }),
-            DeferralCards:CreateChoice({
+            DeferralCards.Input:Choice({
                 title = 'Title 2',
                 value = 'Value 2'
             })

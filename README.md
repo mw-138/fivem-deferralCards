@@ -197,7 +197,7 @@ CreateColumnSet | https://adaptivecards.io/explorer/ColumnSet.html
 CreateColumn | https://adaptivecards.io/explorer/Column.html
 CreateFact | https://adaptivecards.io/explorer/Fact.html
 CreateFactSet | https://adaptivecards.io/explorer/FactSet.html
-CreateImageSetItem | `<string?>` type<br/> `<string?>` url
+CreateImageSetItem | `<string>` type<br/> `<string>` url
 CreateImageSet | https://adaptivecards.io/explorer/ImageSet.html
 CreateOpenUrlAction | https://adaptivecards.io/explorer/Action.OpenUrl.html
 CreateSubmitAction | https://adaptivecards.io/explorer/Action.Submit.html

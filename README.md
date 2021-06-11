@@ -177,4 +177,38 @@ end)
 This example looks a lot cleaner and easier to read through.
 
 # Important
-It is advised to use Adaptive Cards within a while true loop otherwise the client will timeout after a couple of seconds.
+From my personal experience, it is advised to use these export functions within a while true loop otherwise the client will timeout after a couple of seconds.
+
+# Exports
+
+Function Name | Options
+------------ | -------------
+CreateAdaptiveCard | https://adaptivecards.io/explorer/AdaptiveCard.html
+CreateTextBlock | https://adaptivecards.io/explorer/TextBlock.html
+CreateImage | https://adaptivecards.io/explorer/Image.html
+CreateMedia | https://adaptivecards.io/explorer/Media.html
+CreateMediaSource | https://adaptivecards.io/explorer/MediaSource.html
+CreateRichTextBlockItem | `<string>` text<br/> `<string?>` size<br/> `<string?>` color<br/> `<boolean?>` isSubtle<br/> `<string?>` weight<br/> `<boolean?>` highlight<br/> `<boolean?>` italic<br/> `<boolean?>` strikethrough<br/> `<string?>` fontType<br/>
+CreateRichTextBlock | https://adaptivecards.io/explorer/RichTextBlock.html
+CreateTextRun | https://adaptivecards.io/explorer/TextRun.html
+CreateActionSet | https://adaptivecards.io/explorer/ActionSet.html
+CreateContainer | https://adaptivecards.io/explorer/Container.html
+CreateColumnSet | https://adaptivecards.io/explorer/ColumnSet.html
+CreateColumn | https://adaptivecards.io/explorer/Column.html
+CreateFact | https://adaptivecards.io/explorer/Fact.html
+CreateFactSet | https://adaptivecards.io/explorer/FactSet.html
+CreateImageSetItem | `<string?>` type<br/> `<string?>` url
+CreateImageSet | https://adaptivecards.io/explorer/ImageSet.html
+CreateOpenUrlAction | https://adaptivecards.io/explorer/Action.OpenUrl.html
+CreateSubmitAction | https://adaptivecards.io/explorer/Action.Submit.html
+CreateShowCardAction | https://adaptivecards.io/explorer/Action.ShowCard.html
+CreateTargetElement | https://adaptivecards.io/explorer/TargetElement.html
+CreateToggleVisibilityAction | https://adaptivecards.io/explorer/Action.ToggleVisibility.html
+CreateExecuteAction | https://adaptivecards.io/explorer/Action.Execute.html
+CreateTextInput | https://adaptivecards.io/explorer/Input.Text.html
+CreateNumberInput | https://adaptivecards.io/explorer/Input.Number.html
+CreateDateInput | https://adaptivecards.io/explorer/Input.Date.html
+CreateTimeInput | https://adaptivecards.io/explorer/Input.Time.html
+CreateToggleInput | https://adaptivecards.io/explorer/Input.Toggle.html
+CreateChoice | https://adaptivecards.io/explorer/Input.Choice.html
+CreateChoiceSet | https://adaptivecards.io/explorer/Input.ChoiceSet.html

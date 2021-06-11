@@ -174,7 +174,7 @@ AddEventHandler('playerConnecting', function(name, skr, d)
 end)
 ```
 
-This example looks a lot cleaner and easier to read through.
+This example looks a lot cleaner and easier to read through. With this running in a while loop, you can use variables to dynamically change how the adaptive card functions. For example, you can create a queue interface and show the player's position in the queue etc.
 
 # Important
 From my personal experience, it is advised to use these export functions within a while true loop otherwise the client will timeout after a couple of seconds.

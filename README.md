@@ -28,36 +28,36 @@ Using this resource, the previous code example becomes the following:
 AddEventHandler('playerConnecting', function(name, skr, d)
     d.defer()
     Wait(50)
-    local cardOne = DeferralCards:CreateAdaptiveCard({
+    local cardOne = DeferralCards.Card:Create({
         body = {
-            DeferralCards:CreateTextBlock({
+            DeferralCards.CardElement:TextBlock({
                 size = 'ExtraLarge',
                 weight = 'Bolder',
                 text = 'Server password?!'
             }),
-            DeferralCards:CreateTextBlock({
+            DeferralCards.CardElement:TextBlock({
                 text = "That's right, motherfucker! You have to enter a goddamn PASSWORD to connect to this server...",
                 wrap = true
             }),
-            DeferralCards:CreateTextInput({
+            DeferralCards.Input:Text({
                 id = 'password',
                 title = '',
                 placeholder = 'better enter one now'
             }),
-            DeferralCards:CreateImage({
+            DeferralCards.CardElement:Image({
                 url = 'http://images.amcnetworks.com/ifccenter.com/wp-content/uploads/2019/04/pulpfic_1280.jpg',
                 altText = ''
             }),
-            DeferralCards:CreateActionSet({
+            DeferralCards.Container:ActionSet({
                 actions = {
-                    DeferralCards:CreateSubmitAction({
+                    DeferralCards.Action:Submit({
                         title = 'Sure...'
                     }),
-                    DeferralCards:CreateShowCardAction({
+                    DeferralCards.Action:ShowCard({
                         title = 'YOU WISH!!!!!!',
-                        card = DeferralCards:CreateAdaptiveCard({
+                        card = DeferralCards.Card:Create({
                             body = {
-                                DeferralCards:CreateImage({
+                                DeferralCards.CardElement:Image({
                                     url = 'https://i.imgur.com/YjMR0E6.jpg',
                                     altText = ''
                                 })
@@ -69,20 +69,20 @@ AddEventHandler('playerConnecting', function(name, skr, d)
         }
     })
     d.presentCard(cardOne, function(data, rawData)
-        local cardTwo = DeferralCards:CreateAdaptiveCard({
+        local cardTwo = DeferralCards.Card:Create({
             body = {
-                DeferralCards:CreateContainer({
+                DeferralCards.Container:Create({
                     items = {
-                        DeferralCards:CreateTextBlock({
+                        DeferralCards.CardElement:TextBlock({
                             size = 'Medium',
                             weight = 'Bolder',
                             text = 'Publish Adaptive Card schema'
                         }),
-                        DeferralCards:CreateColumnSet({
+                        DeferralCards.Container:ColumnSet({
                             columns = {
-                                DeferralCards:CreateColumn({
+                                DeferralCards.Container:Column({
                                     items = {
-                                        DeferralCards:CreateImage({
+                                        DeferralCards.CardElement:Image({
                                             style = 'Person',
                                             url = 'https://pbs.twimg.com/profile_images/3647943215/d7f12830b3c17a5a9e4afcc370e3a37e_400x400.jpeg',
                                             size = 'Small'
@@ -90,14 +90,14 @@ AddEventHandler('playerConnecting', function(name, skr, d)
                                     },
                                     width = 'auto'
                                 }),
-                                DeferralCards:CreateColumn({
+                                DeferralCards.Container:Column({
                                     items = {
-                                        DeferralCards:CreateTextBlock({
+                                        DeferralCards.CardElement:TextBlock({
                                             weight = 'Bolder',
                                             text = 'Matt Hidinger',
                                             wrap = true
                                         }),
-                                        DeferralCards:CreateTextBlock({
+                                        DeferralCards.CardElement:TextBlock({
                                             spacing = 'None',
                                             text = 'Created {{DATE(2017-02-14T06:08:39Z,SHORT)}}',
                                             isSubtle = true,
@@ -110,27 +110,27 @@ AddEventHandler('playerConnecting', function(name, skr, d)
                         })
                     }
                 }),
-                DeferralCards:CreateContainer({
+                DeferralCards.Container:Create({
                     items = {
-                        DeferralCards:CreateTextBlock({
+                        DeferralCards.CardElement:TextBlock({
                             text = 'Now that we have defined the main rules and features of the format, we need to produce a schema and publish it to GitHub. The schema will be the starting point of our reference documentation.',
                             wrap = true
                         }),
-                        DeferralCards:CreateFactSet({
+                        DeferralCards.Container:FactSet({
                             facts = {
-                                DeferralCards:CreateFact({
+                                DeferralCards.Container:Fact({
                                     title = 'Board:',
                                     value = 'Adaptive Card'
                                 }),
-                                DeferralCards:CreateFact({
+                                DeferralCards.Container:Fact({
                                     title = 'List:',
                                     value = 'Backlog'
                                 }),
-                                DeferralCards:CreateFact({
+                                DeferralCards.Container:Fact({
                                     title = 'Assigned to:',
                                     value = 'Matt Hidinger'
                                 }),
-                                DeferralCards:CreateFact({
+                                DeferralCards.Container:Fact({
                                     title = 'Due date:',
                                     value = 'Not set'
                                 })
@@ -140,28 +140,28 @@ AddEventHandler('playerConnecting', function(name, skr, d)
                 })
             },
             actions = {
-                DeferralCards:CreateShowCardAction({
+                DeferralCards.Action:ShowCard({
                     title = 'Set due date',
-                    card = DeferralCards:CreateAdaptiveCard({
+                    card = DeferralCards.Card:Create({
                         body = {
-                            DeferralCards:CreateDateInput({
+                            DeferralCards.Input:Date({
                                 id = 'dueDate'
                             }),
-                            DeferralCards:CreateTextInput({
+                            DeferralCards.Input:Text({
                                 title = 'comment',
                                 placeholder = 'Add a comment',
                                 isMultiline = true
                             })
                         },
                         actions = {
-                            DeferralCards:CreateSubmitAction({
+                            DeferralCards.Action:Submit({
                                 title = 'OK',
                                 url = 'http://adaptivecards.io'
                             })
                         }
                     })
                 }),
-                DeferralCards:CreateSubmitAction({
+                DeferralCards.Action:Submit({
                     title = 'View',
                     url = 'http://adaptivecards.io'
                 })

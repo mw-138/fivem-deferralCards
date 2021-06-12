@@ -215,5 +215,6 @@ DeferralCards.Input:Toggle | https://adaptivecards.io/explorer/Input.Toggle.html
 DeferralCards.Input:Choice | https://adaptivecards.io/explorer/Input.Choice.html
 DeferralCards.Input:ChoiceSet | https://adaptivecards.io/explorer/Input.ChoiceSet.html
 
-# Links
-[Microsoft Adaptive Cards documentation](https://adaptivecards.io/explorer/)
+# Links & Credits
+[Microsoft Adaptive Cards](https://adaptivecards.io/)<br/>
+[Microsoft Adaptive Cards Documentation](https://adaptivecards.io/explorer/)

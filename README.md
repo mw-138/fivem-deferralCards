@@ -176,11 +176,13 @@ end)
 
 This example looks a lot cleaner and easier to read through. With this running in a while loop, you can use variables to dynamically change how the adaptive card functions. For example, you can create a queue interface and show the player's position in the queue etc.
 
+# How To Use
+To use this resource, you can use the export functions listed below to help create Adaptive Cards.
+
 # Important
 Not sure if this is intentional, but whenever you do not use adaptive cards in a while loop, the client will get a connection failed prompt. Another thing to mention is that some export functions that require input from the client such as text input or date input will not work as the loop will reset the state of the inputs.
 
 # Exports
-
 Function Name | Options
 ------------ | -------------
 CreateAdaptiveCard | https://adaptivecards.io/explorer/AdaptiveCard.html

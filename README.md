@@ -21,7 +21,7 @@ AddEventHandler('playerConnecting', function(name, skr, d)
 end)
 ```
 
-This example is large and a bit of a pain to read through. So I created a library of exports that developers can use to create Adaptive Cards within server-side scripts using export functions instead of writing Adaptive Cards from raw JSON.
+This example is large and a bit of a pain to read through. So I created a library of exports that developers can use to create Adaptive Cards within server-side scripts using functions instead of writing in raw JSON.
 
 Using this resource, the previous code example becomes the following:
 ```lua

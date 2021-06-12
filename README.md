@@ -177,7 +177,7 @@ end)
 This example looks a lot cleaner and easier to read through. With this running in a while loop, you can use variables to dynamically change how the adaptive card functions. For example, you can create a queue interface and show the player's position in the queue etc.
 
 # Important
-From my personal experience, it is advised to use these export functions within a while true loop otherwise the client will timeout after a couple of seconds.
+Not sure if this is intentional, but whenever you do not use adaptive cards in a while loop, the client will get a connection failed prompt. Another thing to mention is that some export functions that require input from the client such as text input or date input will not work as the loop will reset the state of the inputs.
 
 # Exports
 

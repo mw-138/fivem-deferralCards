@@ -13,13 +13,14 @@ AddEventHandler('playerConnecting', function(pName, pKickReason, pDeferrals)
                 DeferralCards.Container:Create({
                     items = {
                         DeferralCards.CardElement:Image({
-                            url = 'https://lh3.googleusercontent.com/proxy/ircc9N-TqIgSD1fkQrDZIlUVAJ0ss9immpQDuZ2dttQ6GxJ1gxAnOOV700FAVVmBhRQelnnkIDd6YQt5B-X4',
-                            size = 'small',
+                            url = 'https://logos-world.net/wp-content/uploads/2021/03/FiveM-Logo.png',
+                            size = 'large',
                             horizontalAlignment = 'center'
                         }),
                         DeferralCards.CardElement:TextBlock({
                             text = ('Welcome, %s'):format(pName),
                             weight = 'Light',
+                            size = 'large',
                             horizontalAlignment = 'center'
                         }),
                         DeferralCards.Container:ActionSet({

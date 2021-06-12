@@ -185,35 +185,35 @@ Not sure if this is intentional, but whenever you do not use adaptive cards in a
 # Exports
 Function Name | Options
 ------------ | -------------
-CreateAdaptiveCard | https://adaptivecards.io/explorer/AdaptiveCard.html
-CreateTextBlock | https://adaptivecards.io/explorer/TextBlock.html
-CreateImage | https://adaptivecards.io/explorer/Image.html
-CreateMedia | https://adaptivecards.io/explorer/Media.html
-CreateMediaSource | https://adaptivecards.io/explorer/MediaSource.html
-CreateRichTextBlockItem | `<string>` text<br/> `<string?>` size<br/> `<string?>` color<br/> `<boolean?>` isSubtle<br/> `<string?>` weight<br/> `<boolean?>` highlight<br/> `<boolean?>` italic<br/> `<boolean?>` strikethrough<br/> `<string?>` fontType<br/>
-CreateRichTextBlock | https://adaptivecards.io/explorer/RichTextBlock.html
-CreateTextRun | https://adaptivecards.io/explorer/TextRun.html
-CreateActionSet | https://adaptivecards.io/explorer/ActionSet.html
-CreateContainer | https://adaptivecards.io/explorer/Container.html
-CreateColumnSet | https://adaptivecards.io/explorer/ColumnSet.html
-CreateColumn | https://adaptivecards.io/explorer/Column.html
-CreateFact | https://adaptivecards.io/explorer/Fact.html
-CreateFactSet | https://adaptivecards.io/explorer/FactSet.html
-CreateImageSetItem | `<string>` type<br/> `<string>` url
-CreateImageSet | https://adaptivecards.io/explorer/ImageSet.html
-CreateOpenUrlAction | https://adaptivecards.io/explorer/Action.OpenUrl.html
-CreateSubmitAction | https://adaptivecards.io/explorer/Action.Submit.html
-CreateShowCardAction | https://adaptivecards.io/explorer/Action.ShowCard.html
-CreateTargetElement | https://adaptivecards.io/explorer/TargetElement.html
-CreateToggleVisibilityAction | https://adaptivecards.io/explorer/Action.ToggleVisibility.html
-CreateExecuteAction | https://adaptivecards.io/explorer/Action.Execute.html
-CreateTextInput | https://adaptivecards.io/explorer/Input.Text.html
-CreateNumberInput | https://adaptivecards.io/explorer/Input.Number.html
-CreateDateInput | https://adaptivecards.io/explorer/Input.Date.html
-CreateTimeInput | https://adaptivecards.io/explorer/Input.Time.html
-CreateToggleInput | https://adaptivecards.io/explorer/Input.Toggle.html
-CreateChoice | https://adaptivecards.io/explorer/Input.Choice.html
-CreateChoiceSet | https://adaptivecards.io/explorer/Input.ChoiceSet.html
+DeferralCards.Card:Create | https://adaptivecards.io/explorer/AdaptiveCard.html
+DeferralCards.CardElement:TextBlock | https://adaptivecards.io/explorer/TextBlock.html
+DeferralCards.CardElement:Image | https://adaptivecards.io/explorer/Image.html
+DeferralCards.CardElement:Media | https://adaptivecards.io/explorer/Media.html
+DeferralCards.CardElement:MediaSource | https://adaptivecards.io/explorer/MediaSource.html
+DeferralCards.CardElement:RichTextBlockItem | `<string>` text<br/> `<string?>` size<br/> `<string?>` color<br/> `<boolean?>` isSubtle<br/> `<string?>` weight<br/> `<boolean?>` highlight<br/> `<boolean?>` italic<br/> `<boolean?>` strikethrough<br/> `<string?>` fontType<br/>
+DeferralCards.CardElement:RichTextBlock | https://adaptivecards.io/explorer/RichTextBlock.html
+DeferralCards.CardElement:TextRun | https://adaptivecards.io/explorer/TextRun.html
+DeferralCards.Container:Create | https://adaptivecards.io/explorer/Container.html
+DeferralCards.Container:ActionSet | https://adaptivecards.io/explorer/ActionSet.html
+DeferralCards.Container:ColumnSet | https://adaptivecards.io/explorer/ColumnSet.html
+DeferralCards.Container:Column | https://adaptivecards.io/explorer/Column.html
+DeferralCards.Container:Fact | https://adaptivecards.io/explorer/Fact.html
+DeferralCards.Container:FactSet | https://adaptivecards.io/explorer/FactSet.html
+DeferralCards.Container:ImageSetItem | `<string>` type<br/> `<string>` url
+DeferralCards.Container:ImageSet | https://adaptivecards.io/explorer/ImageSet.html
+DeferralCards.Action:OpenUrl | https://adaptivecards.io/explorer/Action.OpenUrl.html
+DeferralCards.Action:Submit | https://adaptivecards.io/explorer/Action.Submit.html
+DeferralCards.Action:ShowCard | https://adaptivecards.io/explorer/Action.ShowCard.html
+DeferralCards.Action:TargetElement | https://adaptivecards.io/explorer/TargetElement.html
+DeferralCards.Action:ToggleVisibility | https://adaptivecards.io/explorer/Action.ToggleVisibility.html
+DeferralCards.Action:Execute | https://adaptivecards.io/explorer/Action.Execute.html
+DeferralCards.Input:Text | https://adaptivecards.io/explorer/Input.Text.html
+DeferralCards.Input:Number | https://adaptivecards.io/explorer/Input.Number.html
+DeferralCards.Input:Date | https://adaptivecards.io/explorer/Input.Date.html
+DeferralCards.Input:Time | https://adaptivecards.io/explorer/Input.Time.html
+DeferralCards.Input:Toggle | https://adaptivecards.io/explorer/Input.Toggle.html
+DeferralCards.Input:Choice | https://adaptivecards.io/explorer/Input.Choice.html
+DeferralCards.Input:ChoiceSet | https://adaptivecards.io/explorer/Input.ChoiceSet.html
 
 # Links
 [Microsoft Adaptive Cards documentation](https://adaptivecards.io/explorer/)

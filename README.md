@@ -1,4 +1,6 @@
 # FiveM Adaptive Cards For Deferrals
+
+Original Post: https://forum.cfx.re/t/fivem-adaptive-cards-in-deferrals/3313726?u=mw138
  
 This is a FiveM resource that allows developers to easily create server-side adaptive cards within deferrals using Microsoft Adaptive Cards.
 
